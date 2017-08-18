@@ -1,0 +1,56 @@
+    <div class="content">
+        <div class="header">
+            <h1 class="page-title"></h1>
+        </div>
+        <!--<ul class="breadcrumb">-->
+            <!--<li><a href="index.html"></a> <span class="divider">/</span></li>-->
+            <!--<li class="active"></li>-->
+        <!--</ul>-->
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="btn-toolbar" id="spider-btn">
+                  <div class="btn-group">
+                  </div>
+                </div>
+                <div class="well">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>公司名称</th>
+                            <th>经营模式</th>
+                            <th>联系人</th>
+                            <th>电话</th>
+                            <th>移动电话</th>
+                            <th>地址</th>
+                            <th>上次更新</th>
+                            <th style="width: 16px;"></th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody">
+                      </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <ul>
+                        <!--<li class="disabled"><a href="#">Prev</a></li>-->
+                        <!--<li><a href="#">1</a></li>-->
+                        <!--<li class="active"><a class="btn-primary" href="javascript:void(0);">2</a></li>-->
+                        <!--<li><a href="#">3</a></li>-->
+                        <!--<li><a href="#">4</a></li>-->
+                        <!--<li><a href="#">Next</a></li>-->
+                    </ul>
+                    <div class="pull-right itemcount">共计 <b class="num"></b> 条结果  </div>
+                </div>
+                {% include "_modal.html" %}
+                <footer>
+                        <hr>
+
+                        <p class="pull-right">Collect from <a href="http://www.itcast.cn/" title="Itcast" target="_blank">传智播客</a></p>
+
+
+                        <p>&copy; 2017 <a href="#" target="_blank">Itcast</a></p>
+                    </footer>
+            </div>
+        </div>
+    </div>
