@@ -3,5 +3,10 @@
 {% block content %}
                 {% include "_left_nav.html" %}
                 {% include "_right_side.html" %}
+                {% block script %}
+                <script>
+                    get_selloffer_list({{first_cid}}, {{first_sid}}, 1)
+                </script>
+                {% endblock %}
 {% endblock %}
 

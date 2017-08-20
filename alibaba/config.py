@@ -26,6 +26,6 @@ MYSQLCONFIG = {
 }
 
 # 限制一次允许运行的爬虫数
-MAX_SPIDER_NUM = 3
+MAX_SPIDER_NUM = 1
 
 OFFSET = 100    # 单页默认显示条数

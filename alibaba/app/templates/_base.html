@@ -8,13 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
 
-    <link rel="stylesheet" type="text/css" href="../static/css/theme.css">
-    <link rel="stylesheet" href="../static/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/theme.css">
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.css">
 
-    <script src="../static/js/jquery-1.12.4.js" type="text/javascript"></script>
-      <script src="../static/js/format.js" type="text/javascript"></script>
+    <script src="/static/js/jquery-1.12.4.js" type="text/javascript"></script>
+      <script src="/static/js/format.js" type="text/javascript"></script>
 
     <!-- Demo page code -->
 
@@ -36,46 +36,15 @@
         }
     </style>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
-
-  <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
-  <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
-  <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
-  <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
-  <!--[if (gt IE 9)|!(IE)]><!-->
+{% block body %}
   <body class="">
-  <!--<![endif]-->
 
     <div class="navbar">
         <div class="navbar-inner">
                 <ul class="nav pull-right">
 
-                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">Settings</a></li>
-                    <li id="fat-menu" class="dropdown">
-                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> Jack Smith
-                            <i class="icon-caret-down"></i>
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">My Account</a></li>
-                            <li class="divider"></li>
-                            <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
-                            <li class="divider visible-phone"></li>
-                            <li><a tabindex="-1" href="user/sign-in.html">Logout</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button"><i class="icon-user"></i> itcast</a></li>
 
                 </ul>
                 <a class="brand" href="/"><span class="first">阿里巴巴</span> <span class="second">商家信息采集</span></a>
@@ -85,15 +54,18 @@
   {% block content %}
   {% endblock %}
 
-    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {
             $('.demo-cancel-click').click(function(){return false;});
         });
     </script>
-  <script src="../static/js/main.js"></script>
+  <script src="/static/js/main.js"></script>
+  {% block script %}
+  {% endblock %}
   </body>
+{% endblock %}
 </html>
 
 

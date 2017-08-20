@@ -3,8 +3,8 @@
  */
 
 
-var table_template = '<tr> <td>{0}</td> <td>{1}</td> <td>{2}</td> <td>{3}</td> <td>{4}</td> <td>{5}</td> <td>{6}</td> <td>{7}</td> <td><a href="user/user.html"><i class="icon-pencil"></i></a><a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a> </td> </tr>';
-var spider_manage_btn_template = ' <a href="javascript:void(0);" onclick="start_spider({0}, {1})" class="btn btn-primary"><i class="icon-caret-right"></i> 启动爬虫</a> <a href="javascript:void(0);" onclick="stop_spider({0}, {1})" class="btn btn-danger"><i class="icon-stop"></i> 停止爬虫</a> <a href="javascript:void(0);" onclick="check_spider()" class="btn btn-info"> 查看爬虫</a>'
+var table_template = '<tr> <td>{0}</td> <td>{1}</td> <td>{2}</td> <td>{3}</td> <td>{4}</td> <td>{5}</td> <td>{6}</td> <td>{7}</td></tr>';
+var spider_manage_btn_template = ' <a href="javascript:void(0);" onclick="start_spider({0}, {1})" class="btn btn-primary"><i class="icon-caret-right"></i> 启动爬虫</a> <a href="javascript:void(0);" onclick="stop_spider({0}, {1})" class="btn btn-danger"><i class="icon-stop"></i> 停止爬虫</a> <a href="javascript:void(0);" onclick="check_spider()" class="btn btn-info"><i class="icon-exclamation-sign"></i> 查看爬虫</a>'
 
 // 获取商家信息列表
 function get_selloffer_list(cid, sid, page){
@@ -41,6 +41,9 @@ function get_selloffer_list(cid, sid, page){
             $("#tbody").html(html);
             $(".itemcount .num").html(data.count);
             $(".page-title").html(data.sub_category.name);
+            $("#export-btn a").prop("href","/api/download/{0}.csv/?cid={1}&sid={2}".format(
+                data.sub_category.shortcut, cid, sid
+            ));
         }
     })
 }

@@ -38,13 +38,8 @@ class RunSellofferSpider(Process):
         self.sub_category = db.fetchOne("sub_category", where=" where id=%s" % self.sub_category_id)
         self.category = db.fetchOne("category", where=" where id=%s" % self.category_id)
 
-
     def run(self):
-
         settings.set("SPIDER_PARAMS", {"CATEGORY": self.category, "SUB_CATEGORY": self.sub_category})
         process = CrawlerProcess(settings)
         process.crawl('selloffer')
         process.start()
-
-    def __str__(self):
-        return self.name

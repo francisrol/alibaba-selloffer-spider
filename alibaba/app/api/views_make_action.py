@@ -15,7 +15,7 @@
 from flask import make_response, request
 
 from app.api import api
-from runSpider import RunSellofferSpider
+from runSpider import RunSellofferSpider, RunCategorySpider
 from config import MAX_SPIDER_NUM
 
 # 存储爬虫
@@ -73,5 +73,15 @@ def check_running_spider():
     alive_spider = '\n'.join(["\t"+s.sub_category["name"] for s in spiders])
     data = u"正在运行的爬虫：\n %s \n "%alive_spider if alive_spider else u'未找到正在运行的爬虫'
     return make_response(data)
+
+@api.route("/api/update/categories/")
+def update_categories():
+    p = RunCategorySpider()
+    p.start()
+    p.sub_category = {}
+    p.sub_category["name"] = u"分类更新爬虫"
+    spiders.append(p)
+    return make_response("<p>正在更新...<\p>"
+                         "<a href='/api/spider/check/'>点击  </a>检查正在运行的爬虫")
 
 

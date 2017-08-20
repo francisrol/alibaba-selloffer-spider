@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+
+{% block body %}
+ <body class="">
+    <div class="navbar">
+        <div class="navbar-inner">
+                <ul class="nav pull-right">
+
+                </ul>
+                <a class="brand" href="/"><span class="first">阿里巴巴</span> <span class="second">商家信息采集</span></a>
+        </div>
+    </div>
+
+        <div class="row-fluid">
+    <div class="dialog">
+        <div class="block">
+            <p class="block-heading">登录</p>
+            <div class="block-body">
+                <form action="/login/" method="post">
+                    <div class="form-group">
+                        <label>管理员</label>
+                        <input type="text" class="form-control span12" name="username" />
+                    </div>
+                    <div class="form-group">
+                        <label>管理员密码</label>
+                        <input type="password" class="form-control span12" name="password" />
+                    </div>
+                    <div class="form-group pull-left">
+                        <label style="color:red;">{{message}}</label>
+                    </div>
+                    <div class="form-group pull-right">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        <!--<p class="pull-right" style=""><a href="#" target="blank">Theme by Portnine</a></p>-->
+        <!--<p><a href="reset-password.html">Forgot your password?</a></p>-->
+    </div>
+</div>
+
+    <script src="../../static/bootstrap/js/bootstrap.js"></script>
+    <!--<script type="text/javascript">-->
+        <!--$("[rel=tooltip]").tooltip();-->
+        <!--$(function() {-->
+            <!--$('.demo-cancel-click').click(function(){return false;});-->
+        <!--});-->
+    <!--</script>-->
+
+  </body>
+{% endblock %}
