@@ -73,8 +73,8 @@ class MysqlHandler(object):
         self.connect.commit()
         return cursor
 
-    def __del__(self):
-        self.connect.close()
+    # def __del__(self):
+    #     self.connect.close()
 
 
 class RedisHandler(object):

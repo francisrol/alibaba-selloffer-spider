@@ -16,7 +16,7 @@ import pymysql
 
 # MYSQL配置文件
 MYSQLCONFIG = {
-    "host": "127.0.0.1",
+    "host": "52.77.155.186",
     "port": 3306,
     "db": "alibaba",
     "user": "alibaba",

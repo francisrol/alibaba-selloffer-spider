@@ -11,12 +11,12 @@ from xpinyin import Pinyin
 
 from db import MysqlHandler, error
 
-db = MysqlHandler()
 
 class AlibabaCategoryPipeline(object):
 
     def __init__(self):
         self.pinyin = Pinyin()
+        self.db = MysqlHandler()
 
     def process_item(self, item, spider):
         # 判断是不是分类爬虫
@@ -53,7 +53,7 @@ class AlibabaCategoryPipeline(object):
                 # 插入数据
                 try:
                     # db.insert(sheet_name, columns, params)
-                    db.updateOrInsert(sheet_name, columns, params, "where shortcut='%s'"%params[-1])
+                    self.db.updateOrInsert(sheet_name, columns, params, "where shortcut='%s'"%params[-1])
                 except error.IntegrityError as e:
                     print("Duplicate Key")
 
@@ -61,6 +61,10 @@ class AlibabaCategoryPipeline(object):
 
 
 class AlibabaSellofferPipeline(object):
+
+    def __init__(self):
+        self.db = MysqlHandler()
+
     def process_item(self, item, spider):
         if spider.name == "selloffer":
             sheet_name = "selloffer"
@@ -93,7 +97,7 @@ class AlibabaSellofferPipeline(object):
                 datetime.now()
             ]
             # db.insert(sheet_name, columns, params)
-            db.updateOrInsert(sheet_name, columns, params, "where shortcut='%s' and category_id=%d and sub_category_id=%d" %(item["shortcut"],item["category_id"],item["sub_category_id"]))
+            self.db.updateOrInsert(sheet_name, columns, params, "where shortcut='%s' and category_id=%d and sub_category_id=%d" %(item["shortcut"],item["category_id"],item["sub_category_id"]))
         return item
 
 
